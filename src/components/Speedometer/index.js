@@ -7,14 +7,14 @@ class Speedometer extends Component {
   onAccelerate = () => {
     const {speed} = this.state
     if (speed < 200) {
-      this.setState(prevState => ({count: prevState.speed + 10}))
+      this.setState(prevState => ({speed: prevState.speed + 10}))
     }
   }
 
   onApplyBrake = () => {
     const {speed} = this.state
     if (speed > 0) {
-      this.setState(countState => ({count: countState.speed - 10}))
+      this.setState(countState => ({speed: countState.speed - 10}))
     }
   }
 
@@ -22,24 +22,26 @@ class Speedometer extends Component {
     const {speed} = this.state
     return (
       <div className="bg-container">
-        <h1 className="main-heading">SPEEDOMETER</h1>
+        <h1 className="main-heading">
+          <i>SPEEDOMETER</i>
+        </h1>
         <img
           src="https://assets.ccbp.in/frontend/react-js/speedometer-img.png"
           className="image"
           alt="speedometer"
         />
-        <h1>Speed is {speed}mph</h1>
-        <p>Min Limit is 0mph, Max Limit is 200mph</p>
+        <h1 className="speed-count">Speed is {speed}mph</h1>
+        <p className="description">Min Limit is 0mph, Max Limit is 200mph</p>
         <div>
           <button
-            className="accelerate-button"
+            className="accelerate-button button"
             type="button"
             onClick={this.onAccelerate}
           >
             Accelerate
           </button>
           <button
-            className="brake-button"
+            className="brake-button button"
             type="button"
             onClick={this.onApplyBrake}
           >
